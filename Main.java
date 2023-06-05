@@ -28,7 +28,7 @@ public class Main {
             for (Course course : courses) {
                 if (getFound() == true) {
                     for (int i = 1; i<=constNum; i++){
-                    System.out.println("Введите имя" + i +"студента: ");
+                    System.out.println("Введите имя " + i +" студента: ");
                     String studentName = search.nextLine();
                     course.addStudent(studentName);
                     }

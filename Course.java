@@ -5,8 +5,7 @@ import java.lang.String;
 public class Course{
     private String coursename;
     private String[] students;
-    private int numberOfStudents = 0;
-
+    
     public Course(String nameOfCourse){
         this.coursename = nameOfCourse;
         students = new String[0];
@@ -38,7 +37,7 @@ public class Course{
     }
 
     public void dropStudent(String Student){
-        int index = getStudentIndex(Student);
+        int index = getNumberOfStudents(Student);
         if (index != -1) {
             String[] newStudents = new String[students.length - 1];
             System.arraycopy(students, 0, newStudents, 0, index);
@@ -50,7 +49,7 @@ public class Course{
         }
     }
 
-    private int getStudentIndex(String studentName) {
+    private int getNumberOfStudents(String studentName) {
         for (int i = 0; i < students.length; i++) {
             if (students[i].equals(studentName)) {
                 return i;
@@ -64,17 +63,5 @@ public class Course{
         for (String student : students) {
             System.out.println(student);
         } 
-    }
-
-    public int getNumberOfStudents(){
-        for (int i = 0; i <= students.length; i++){
-            if (!students[i].equals(null)){
-                numberOfStudents += 1; 
-            }
-            else if(numberOfStudents == 0){
-                System.out.println("Студентов нет ");
-            }
-        }
-        return numberOfStudents;
     }
 }
