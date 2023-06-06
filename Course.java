@@ -1,3 +1,6 @@
+/**
+ * Класс для представления дисциплины.
+ */
 package com.company;
 
 import java.lang.String;
@@ -6,15 +9,28 @@ public class Course{
     private String coursename;
     private String[] students;
     
+    /**
+     * Конструктор класса Course.
+     * @param nameOfCourse название дисциплины
+     */
     public Course(String nameOfCourse){
         this.coursename = nameOfCourse;
         students = new String[0];
     }
 
+    /**
+     * Метод для получения названия дисциплины.
+     * @return название дисциплины
+     */
     public String getcoursename(){
         return coursename;
     }
 
+    /**
+     * Метод для проверки наличия студента на дисциплине.
+     * @param Student имя студента
+     * @return true, если студент уже есть на дисциплине, false - в противном случае
+     */
     private boolean containsStudent(String Student) {
         for (String student : students) {
             if (student.equals(Student)) {
@@ -24,6 +40,10 @@ public class Course{
         return false;
     }
 
+    /**
+     * Метод для добавления студента на дисциплину.
+     * @param Student имя студента
+     */
     public void addStudent(String Student){
         if (!containsStudent(Student)) {
             String[] newStudents = new String[students.length + 1];
@@ -36,6 +56,10 @@ public class Course{
         }
     }
 
+    /**
+     * Метод для удаления студента с дисциплины.
+     * @param Student имя студента
+     */
     public void dropStudent(String Student){
         int index = getNumberOfStudents(Student);
         if (index != -1) {
@@ -49,6 +73,11 @@ public class Course{
         }
     }
 
+    /**
+     * Метод для получения индекса студента в массиве студентов.
+     * @param studentName имя студента
+     * @return индекс студента в массиве студентов
+     */
     private int getNumberOfStudents(String studentName) {
         for (int i = 0; i < students.length; i++) {
             if (students[i].equals(studentName)) {
@@ -58,6 +87,9 @@ public class Course{
         return -1;
     }
 
+    /**
+     * Метод для получения списка студентов на дисциплине.
+     */
     public void getStudents(){
         System.out.println("Студенты на " + coursename + ":");
         for (String student : students) {
